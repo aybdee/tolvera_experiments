@@ -248,10 +248,10 @@ class AntColony:
         intensities, directions = self.get_pheromones(pos, has_food)
 
         total_intensity = 0.0
-        for i in ti.static(range(8)):  # Unroll loop for better performance
+        for i in ti.static(range(8)):
             total_intensity += intensities[i]
 
-        chosen_direction = current_direction  # Default: keep moving forward
+        chosen_direction = current_direction
 
         # Always add some randomness/exploration whether following pheromones or not
         explore_prob = 0.3
@@ -345,7 +345,7 @@ class AntColony:
             self.tv.s.ant_p[i].direction = ti.Vector([tm.cos(angle), tm.sin(angle)])
 
     def step(self):
-        self.draw_pheromone()
+        # self.draw_pheromone()
         self.decay_pheromones(0.99)
         self.move_ants(self.tv.p.field)
         pass
