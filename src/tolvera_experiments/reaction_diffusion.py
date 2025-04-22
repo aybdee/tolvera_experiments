@@ -1,6 +1,5 @@
 import taichi as ti
 from tolvera import Tolvera, run
-
 from tolvera_experiments.attract import Attract
 
 
